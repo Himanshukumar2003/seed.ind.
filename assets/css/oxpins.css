@@ -3658,6 +3658,8 @@ body.locked .page-wrapper {
   width: 100%;
   border-radius: var(--oxpins-bdr-radius);
   transform: scale(1);
+  aspect-ratio: 2;
+  object-fit: contain;
   transition: transform 500ms ease;
 }
 
@@ -4652,6 +4654,7 @@ body.locked .page-wrapper {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -4710,7 +4713,7 @@ body.locked .page-wrapper {
   position: relative;
   display: inline-block;
   font-size: 24px;
-  color: #89d3c6;
+  color: var(--oxpins-black);
   font-weight: 700;
   font-family: var(--oxpins-font-three);
   line-height: 24px;
@@ -14948,4 +14951,86 @@ body.megamenu-popup-active .mobile-nav__content {
   .timeline.animated .timeline-row.active:nth-child(odd) .timeline-content {
     left: 0;
   }
+}
+
+
+
+
+.mission-vision-story {}
+
+.mission-vision-story .intro-text {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.mission-vision-story .card {
+  padding: 20px;
+  border: none;
+  background: none;
+}
+
+.icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  /* Adjust size as needed */
+  height: 80px;
+  /* Adjust size as needed */
+  background: var(--oxpins-base);
+  /* Background color for the circle */
+  border-radius: 50%;
+  /* Makes the div circular */
+  margin: 0 auto 15px;
+  /* Centers the circle and adds bottom spacing */
+  padding: 10px;
+  /* Adds inner padding */
+}
+
+
+
+
+.mission-vision-story .icon {
+  font-size: 40px;
+  color: #fff;
+  /* Icon color inside the circle */
+}
+
+.mission-vision-story .card-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.mission-vision-story .card-text {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+
+img {
+  width: 100%;
+}
+
+
+.interventions-card-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 50px;
+  height: 3px;
+  background-color: #dc3545;
+}
+
+.interventions-card-title {
+  position: relative;
+  display: inline-block;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.section-bottom-pb {
+  padding-bottom: 120px;
 }

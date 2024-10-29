@@ -11,6 +11,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+// document.querySelectorAll('.read-more').forEach(button => {
+//   button.addEventListener('click', function () {
+//     const card = this.closest('.card');
+//     const allCards = document.querySelectorAll('.card');
+
+//     allCards.forEach(c => {
+//       if (c !== card && c.classList.contains('expanded')) {
+//         c.classList.remove('expanded');
+//         c.querySelector('.read-more').textContent = 'Read more';
+//       }
+//     });
+
+//     if (card.classList.contains('expanded')) {
+//       card.classList.remove('expanded');
+//       this.textContent = 'Read more';
+//     } else {
+//       card.classList.add('expanded');
+//       this.textContent = 'Read less';
+//     }
+//   });
+// });
+
 
 
 
