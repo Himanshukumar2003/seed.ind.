@@ -15034,3 +15034,39 @@ img {
 .section-bottom-pb {
   padding-bottom: 120px;
 }
+
+
+
+.section-padding {
+  padding-bottom: 120px 0;
+}
+
+
+.logo-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Styling each grid item */
+.logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white !important;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 20px;
+  transition: transform 0.2s;
+}
+
+/* Hover effect */
+.logo-item:hover {
+  transform: scale(1.05);
+}
+
+/* Styling for images */
+.logo-item img {
+  object-fit: contain;
+}

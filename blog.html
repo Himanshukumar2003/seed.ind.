@@ -4,174 +4,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Project Cards</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Logo Grid</title>
     <style>
-        .card-title {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 1rem;
+        .logo-grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
         }
 
-        .card-title::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            width: 50px;
-            height: 3px;
-            background-color: #dc3545;
+        /* Styling each grid item */
+        .logo-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 20px;
+            transition: transform 0.2s;
         }
 
-        .card-images {
-            height: 200px;
-            overflow: hidden;
+        /* Hover effect */
+        .logo-item:hover {
+            transform: scale(1.05);
         }
 
-        .card-images img {
-            width: 33.33%;
-            height: 100%;
-            object-fit: cover;
-            float: left;
-        }
-
-        .card {
-            height: 400px;
-            transition: height 0.3s ease-out;
-        }
-
-        .card.expanded {
-            height: auto;
-        }
-
-        .card-text {
-            max-height: 100px;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-
-        .card.expanded .card-text {
-            max-height: 1000px;
-        }
-
-        .read-more {
-            cursor: pointer;
-            color: #007bff;
-            display: inline-block;
-            margin-top: 10px;
+        /* Styling for images */
+        .logo-item img {
+            object-fit: contain;
         }
     </style>
 </head>
 
 <body>
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-images">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-fPQXzcq9AdYQjrEnHaYzvJI5mF4fCF.png"
-                            alt="Social Project Interventions 1">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-fPQXzcq9AdYQjrEnHaYzvJI5mF4fCF.png"
-                            alt="Social Project Interventions 2">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-fPQXzcq9AdYQjrEnHaYzvJI5mF4fCF.png"
-                            alt="Social Project Interventions 3">
-                    </div>
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Social Project Interventions</h5>
-                        <div class="card-text flex-grow-1">
-                            <p>The Research & Survey team conducts Social Impact Assessment which includes the processes
-                                of analyzing, monitoring and managing the intended and unintended social consequences,
-                                both positive and negative, of planned interventions and any social change processes
-                                invoked by those interventions.</p>
-                            <p>The main outcome of Social Impact Assessment surveys includes getting insights about the
-                                impact of the facilities provided to the community. Based on the analyzation of the data
-                                captured, necessary actions are suggested to rectify the problems faced and implement
-                                necessary Project activities.</p>
-                        </div>
-                        <span class="read-more mt-auto">Read more</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-images">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-fPQXzcq9AdYQjrEnHaYzvJI5mF4fCF.png"
-                            alt="Baseline Needs 1">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-fPQXzcq9AdYQjrEnHaYzvJI5mF4fCF.png"
-                            alt="Baseline Needs 2">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-fPQXzcq9AdYQjrEnHaYzvJI5mF4fCF.png"
-                            alt="Baseline Needs 3">
-                    </div>
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Baseline Needs & Assessment Study</h5>
-                        <div class="card-text flex-grow-1">
-                            <p>To perform CSR & Social Project activities effectively, the survey team at SEED CSR
-                                conducts Baseline Surveys and Needs Assessments to understand key issues in the targeted
-                                project area. They provide valuable insights into the issues faced by the population
-                                groups residing in those geographies.</p>
-                            <p>The main outcome of Need Assessment surveys includes getting insights about the needs and
-                                problems of the community both at individual household as well as village level related
-                                to thematic areas of WASH, Education, Health etc. Based on the analyzation of these
-                                needs and problems, further implementation of the various necessary Social Intervention
-                                activities in the respective surveyed locations takes place.</p>
-                        </div>
-                        <span class="read-more mt-auto">Read more</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-images">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-fPQXzcq9AdYQjrEnHaYzvJI5mF4fCF.png"
-                            alt="Social Impact Assessment 1">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-fPQXzcq9AdYQjrEnHaYzvJI5mF4fCF.png"
-                            alt="Social Impact Assessment 2">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-fPQXzcq9AdYQjrEnHaYzvJI5mF4fCF.png"
-                            alt="Social Impact Assessment 3">
-                    </div>
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">Social Impact Assessment</h5>
-                        <div class="card-text flex-grow-1">
-                            <p>The Research & Survey team conducts Social Impact Assessment which includes the processes
-                                of analyzing, monitoring and managing the intended and unintended social consequences,
-                                both positive and negative, of planned interventions and any social change processes
-                                invoked by those interventions.</p>
-                            <p>The main outcome of Social Impact Assessment surveys includes getting insights about the
-                                impact of the facilities provided to the community. Based on the analyzation of the data
-                                captured, necessary actions are suggested to rectify the problems faced and implement
-                                necessary Project activities.</p>
-                        </div>
-                        <span class="read-more mt-auto">Read more</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+    <div class="logo-grid-container" id="logoGrid">
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.querySelectorAll('.read-more').forEach(button => {
-            button.addEventListener('click', function () {
-                const card = this.closest('.card');
-                const allCards = document.querySelectorAll('.card');
+        // Array of image paths
+        const logos = [
+            "assets/images/patrons/ADANI.png",
+            "assets/images/patrons/AMBUJA.png",
+            "assets/images/patrons/aplolo.png",
+            "assets/images/patrons/Atotech.png",
+            "assets/images/patrons/axis-bank.png",
+            "assets/images/patrons/aymsyntex.png",
+            "assets/images/patrons/birlasoft.png",
+            "assets/images/patrons/caf.png",
+            "assets/images/patrons/cairn.png",
+            "assets/images/patrons/caterpillar.png",
+            "assets/images/patrons/cma.png",
+            "assets/images/patrons/daffpl.png",
+            "assets/images/patrons/deutches-bank.png",
+            "assets/images/patrons/dxc-technology.png",
+            "assets/images/patrons/gail.png",
+            "assets/images/patrons/hsbc.png",
+            "assets/images/patrons/indigo.png",
+            "assets/images/patrons/indusind.png",
+            "assets/images/patrons/jcb.png",
+            "assets/images/patrons/jindal-steel.png",
+            "assets/images/patrons/jklakshmi.png",
+            "assets/images/patrons/jsw.png",
+            "assets/images/patrons/mcdermott.png",
+            "assets/images/patrons/md.png",
+            "assets/images/patrons/monsanto.png",
+            "assets/images/patrons/MSC.png",
+            "assets/images/patrons/NIPPON.png",
+            "assets/images/patrons/NMDC.png",
+            "assets/images/patrons/ONGC.png",
+            "assets/images/patrons/Ptc-Logo.png",
+            "assets/images/patrons/RB.png",
+            "assets/images/patrons/REC.png",
+            "assets/images/patrons/RELIANCE.png",
+            "assets/images/patrons/RENEWPOWER.png",
+            "assets/images/patrons/RITES.png",
+            "assets/images/patrons/SAIL.png",
+            "assets/images/patrons/SAMIHTA.png",
+            "assets/images/patrons/SANOFIU.png",
+            "assets/images/patrons/SEMBCORP.png",
+            "assets/images/patrons/SESA.png",
+            "assets/images/patrons/TECHNIP.png"
+        ];
 
-                // Close all other expanded cards
-                allCards.forEach(c => {
-                    if (c !== card && c.classList.contains('expanded')) {
-                        c.classList.remove('expanded');
-                        c.querySelector('.read-more').textContent = 'Read more';
-                    }
-                });
+        // Get the container element
+        const logoGrid = document.getElementById("logoGrid");
 
-                // Toggle the clicked card
-                if (card.classList.contains('expanded')) {
-                    card.classList.remove('expanded');
-                    this.textContent = 'Read more';
-                } else {
-                    card.classList.add('expanded');
-                    this.textContent = 'Read less';
-                }
-            });
+        // Loop through the logos array and create an HTML structure for each logo
+        logos.forEach(logo => {
+            const logoItem = document.createElement("div");
+            logoItem.classList.add("logo-item");
+
+            const img = document.createElement("img");
+            img.src = logo;
+            img.alt = "Company Logo";
+
+            logoItem.appendChild(img);
+            logoGrid.appendChild(logoItem);
         });
     </script>
 </body>
