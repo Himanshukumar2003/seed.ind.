@@ -4,106 +4,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logo Grid</title>
+    <title>Youth Training Statistics</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/oxpins.css" />
+
     <style>
-        .logo-grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 20px;
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
         }
 
-        /* Styling each grid item */
-        .logo-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: white;
-            border: 1px solid #ddd;
-            padding: 10px;
-            border-radius: 20px;
-            transition: transform 0.2s;
+        .stats-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #f1f3f5;
+            border-radius: 10px;
         }
 
-        /* Hover effect */
-        .logo-item:hover {
-            transform: scale(1.05);
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ff6b6b;
+            line-height: 1;
         }
 
-        /* Styling for images */
-        .logo-item img {
-            object-fit: contain;
+        .stat-text {
+            font-size: 1rem;
+            color: #343a40;
+        }
+
+        .divider {
+            border-top: 1px solid #dee2e6;
+            margin: 1.5rem 0;
+        }
+
+        .award-text {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .highlight {
+            color: #ff6b6b;
         }
     </style>
 </head>
 
 <body>
+    <div class="stats-container">
+        <div class="row mb-4 justify-content-center">
+            <div class="col-md-4 flex-column d-flex justify-content-center ">
+                <div class="stat-number">250,000+</div>
+                <div class="stat-text">YOUTH TRAINED</div>
+            </div>
+            <div class="col-md-4 boder-left justify-content-center">
+                <div class="stat-number">MORE THAN</div>
+                <div class="stat-number">150,000+</div>
+                <div class="stat-text">YOUTH PLACED TILL DATE</div>
+            </div>
+        </div>
 
-    <div class="logo-grid-container" id="logoGrid">
+        <div class="divider"></div>
+
+        <div class="row mb-4 d-flex justify-content-center">
+            <div class="col-md-4  justify-content-center">
+                <div class="stat-number">300+</div>
+                <div class="stat-text">PROJECTS COVERING</div>
+                <div class="stat-text"><strong>30+ DISTRICTS</strong></div>
+                <div class="stat-text">IN 14 STATES</div>
+            </div>
+            <div class="col-md-4 boder-left-right flex-column d-flex justify-content-center">
+                <div class="stat-number">65%</div>
+                <div class="stat-text">OF THE TOTAL TRAINED YOUTH GOT EMPLOYMENT OR STARTED THEIR OWN ENTERPRISE</div>
+            </div>
+            <div class="col-md-4 flex-column d-flex justify-content-center">
+                <div class="stat-number">94%</div>
+                <div class="stat-text">SUCCESSFULLY COMPLETED TRAINING</div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="row mb-4 boder-left-right ">
+            <div class="col-md-6">
+                <div class="stat-number">55%</div>
+                <div class="stat-text">OF THE TOTAL BENEFICIARIES ARE</div>
+                <div class="stat-text highlight">WOMEN</div>
+            </div>
+            <div class="col-md-6 flex-column d-flex justify-content-center">
+                <div class="stat-number">16+</div>
+                <div class="stat-text">YEARS OF</div>
+                <div class="stat-text">EXPERIENCE</div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="award-text">
+            SKILLING CENTER IN <span class="highlight">JANAULI VILLAGE</span>, PALWAL WON THE <span
+                class="highlight">ICC (INDIAN CHAMBER OF COMMERCE) AWARD FOR "INNOVATION IN SKILLING"</span>
+        </div>
     </div>
 
-    <script>
-        // Array of image paths
-        const logos = [
-            "assets/images/patrons/ADANI.png",
-            "assets/images/patrons/AMBUJA.png",
-            "assets/images/patrons/aplolo.png",
-            "assets/images/patrons/Atotech.png",
-            "assets/images/patrons/axis-bank.png",
-            "assets/images/patrons/aymsyntex.png",
-            "assets/images/patrons/birlasoft.png",
-            "assets/images/patrons/caf.png",
-            "assets/images/patrons/cairn.png",
-            "assets/images/patrons/caterpillar.png",
-            "assets/images/patrons/cma.png",
-            "assets/images/patrons/daffpl.png",
-            "assets/images/patrons/deutches-bank.png",
-            "assets/images/patrons/dxc-technology.png",
-            "assets/images/patrons/gail.png",
-            "assets/images/patrons/hsbc.png",
-            "assets/images/patrons/indigo.png",
-            "assets/images/patrons/indusind.png",
-            "assets/images/patrons/jcb.png",
-            "assets/images/patrons/jindal-steel.png",
-            "assets/images/patrons/jklakshmi.png",
-            "assets/images/patrons/jsw.png",
-            "assets/images/patrons/mcdermott.png",
-            "assets/images/patrons/md.png",
-            "assets/images/patrons/monsanto.png",
-            "assets/images/patrons/MSC.png",
-            "assets/images/patrons/NIPPON.png",
-            "assets/images/patrons/NMDC.png",
-            "assets/images/patrons/ONGC.png",
-            "assets/images/patrons/Ptc-Logo.png",
-            "assets/images/patrons/RB.png",
-            "assets/images/patrons/REC.png",
-            "assets/images/patrons/RELIANCE.png",
-            "assets/images/patrons/RENEWPOWER.png",
-            "assets/images/patrons/RITES.png",
-            "assets/images/patrons/SAIL.png",
-            "assets/images/patrons/SAMIHTA.png",
-            "assets/images/patrons/SANOFIU.png",
-            "assets/images/patrons/SEMBCORP.png",
-            "assets/images/patrons/SESA.png",
-            "assets/images/patrons/TECHNIP.png"
-        ];
-
-        // Get the container element
-        const logoGrid = document.getElementById("logoGrid");
-
-        // Loop through the logos array and create an HTML structure for each logo
-        logos.forEach(logo => {
-            const logoItem = document.createElement("div");
-            logoItem.classList.add("logo-item");
-
-            const img = document.createElement("img");
-            img.src = logo;
-            img.alt = "Company Logo";
-
-            logoItem.appendChild(img);
-            logoGrid.appendChild(logoItem);
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

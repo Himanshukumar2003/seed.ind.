@@ -15070,3 +15070,12 @@ img {
 .logo-item img {
   object-fit: contain;
 }
+
+.boder-left {
+  border-left: 2px solid #AB4C53;
+}
+
+.boder-left-right {
+  border: 0 2px solid #AB4C53;
+
+}
