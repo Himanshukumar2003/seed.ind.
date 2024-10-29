@@ -1,3 +1,19 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const currentUrl = window.location.pathname;
+  const menuLinks = document.querySelectorAll(".main-menu__list a");
+
+  menuLinks.forEach(link => {
+    if (link.getAttribute("href") === currentUrl) {
+      link.classList.add("active");
+    }
+  });
+});
+
+
+
+
+
+
 (function ($) {
   "use strict";
 
