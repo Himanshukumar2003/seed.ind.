@@ -33,8 +33,16 @@ document.addEventListener("DOMContentLoaded", function () {
 //   });
 // });
 
+function toggleContent() {
+  const expandedContent = document.querySelectorAll('.expanded-content');
+  const btn = document.querySelector('.read-more-btn');
 
+  expandedContent.forEach(content => {
+    content.style.display = content.style.display === 'none' || content.style.display === '' ? 'block' : 'none';
+  });
 
+  btn.textContent = btn.textContent === 'Read More' ? 'Read Less' : 'Read More';
+}
 
 (function ($) {
   "use strict";
@@ -1156,3 +1164,10 @@ function validateMessage() {
   }
   return true;
 }
+
+
+
+
+
+
+
