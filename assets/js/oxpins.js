@@ -1,14 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const currentUrl = window.location.pathname;
+  const currentUrl = window.location.pathname.replace(/\/$/, ""); // Remove trailing slash
   const menuLinks = document.querySelectorAll(".main-menu__list a");
 
   menuLinks.forEach(link => {
-    if (link.getAttribute("href") === currentUrl) {
+    const linkPath = link.getAttribute("href").replace(/\/$/, ""); // Remove trailing slash
+    if (linkPath === currentUrl) {
       link.classList.add("active");
     }
   });
 });
-
 
 
 // document.querySelectorAll('.read-more').forEach(button => {

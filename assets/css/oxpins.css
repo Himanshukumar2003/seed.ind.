@@ -952,11 +952,8 @@ ul {
 
 .main-menu__list .active {
   color: black !important;
-  /* Example active color */
-  font-weight: bold;
-  /* Optional styling */
-  border-bottom: 2px solid #AB4C53;
-  /* Optional underline for active link */
+  font-weight: bold !important;
+
 }
 
 
