@@ -5048,6 +5048,7 @@ body.locked .page-wrapper {
 .footer-widget__about {
   position: relative;
   display: block;
+  width: 100%;
   margin-right: 84px;
 }
 
@@ -15288,4 +15289,31 @@ img {
   width: 100% !important;
   object-fit: cover;
   max-height: 400px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 991px) {
+  .footer-widget__column {
+    text-align: center;
+  }
 }

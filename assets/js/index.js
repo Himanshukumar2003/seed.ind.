@@ -363,24 +363,55 @@ function toggleContent() {
 
   if ($(".contact-form-validated").length) {
     $(".contact-form-validated").validate({
-      // initialize the plugin
       rules: {
         name: {
-          required: true
+          required: true,
+          minlength: 3
         },
         email: {
           required: true,
-          email: true
+          email: true,
+          minlength: 8
+        },
+        phone: {
+          required: true,
+          number: true,
+          minlength: 10,
+          maxlength: 10
+        },
+        subject: {
+          required: true,
+          minlength: 5
         },
         message: {
           required: true
+        }
+      },
+      messages: {
+        name: {
+          required: "Please enter your name",
+          minlength: "Name should be at least 3 characters"
+        },
+        email: {
+          required: "Please enter your email",
+          email: "Please enter a valid email",
+          minlength: "Email should be at least 8 characters"
+        },
+        phone: {
+          required: "Please enter your phone number",
+          number: "Please enter only numbers",
+          minlength: "Phone number should be exactly 10 digits",
+          maxlength: "Phone number should be exactly 10 digits"
         },
         subject: {
-          required: true
+          required: "Please enter a subject",
+          minlength: "Subject should be at least 5 characters"
+        },
+        message: {
+          required: "Please enter your message"
         }
       },
       submitHandler: function (form) {
-        // sending value with ajax request
         $.post(
           $(form).attr("action"),
           $(form).serialize(),
@@ -395,6 +426,7 @@ function toggleContent() {
       }
     });
   }
+
 
   // mailchimp form
   if ($(".mc-form").length) {
@@ -1054,116 +1086,6 @@ function toggleContent() {
 
 })(jQuery);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const form = document.getElementById('contactForm');
-
-form.addEventListener('submit', (e) => {
-  e.preventDefault(); // Prevent form submission
-
-  // Clear previous errors
-  clearErrors();
-
-  // Validate each field
-  let isValid = true;
-
-  if (!validateName()) isValid = false;
-  if (!validateEmail()) isValid = false;
-  if (!validatePhone()) isValid = false;
-  if (!validateSubject()) isValid = false;
-  if (!validateMessage()) isValid = false;
-
-  // If form is valid, submit the form
-  if (isValid) {
-    form.submit();
-  }
-});
-
-// Real-time validation
-form.name.addEventListener('input', validateName);
-form.email.addEventListener('input', validateEmail);
-form.phone.addEventListener('input', validatePhone);
-form.subject.addEventListener('input', validateSubject);
-form.message.addEventListener('input', validateMessage);
-
-function clearErrors() {
-  document.querySelectorAll('.error-message').forEach(error => {
-    error.textContent = '';
-  });
-  document.querySelectorAll('.input-error').forEach(input => {
-    input.classList.remove('input-error');
-  });
-}
-
-function validateName() {
-  const name = form.name;
-  const error = document.getElementById('nameError');
-  if (name.value.trim() === '') {
-    error.textContent = 'Name is required';
-    name.classList.add('input-error');
-    return false;
-  }
-  return true;
-}
-
-function validateEmail() {
-  const email = form.email;
-  const error = document.getElementById('emailError');
-  const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-  if (!emailPattern.test(email.value.trim())) {
-    error.textContent = 'Please enter a valid email address';
-    email.classList.add('input-error');
-    return false;
-  }
-  return true;
-}
-
-function validatePhone() {
-  const phone = form.phone;
-  const error = document.getElementById('phoneError');
-  const phonePattern = /^[0-9]{10}$/; // Example pattern for 10-digit numbers
-  if (!phonePattern.test(phone.value.trim())) {
-    error.textContent = 'Please enter a valid 10-digit phone number';
-    phone.classList.add('input-error');
-    return false;
-  }
-  return true;
-}
-
-function validateSubject() {
-  const subject = form.subject;
-  const error = document.getElementById('subjectError');
-  if (subject.value.trim() === '') {
-    error.textContent = 'Subject is required';
-    subject.classList.add('input-error');
-    return false;
-  }
-  return true;
-}
-
-function validateMessage() {
-  const message = form.message;
-  const error = document.getElementById('messageError');
-  if (message.value.trim() === '') {
-    error.textContent = 'Message cannot be empty';
-    message.classList.add('input-error');
-    return false;
-  }
-  return true;
-}
 
 
 
