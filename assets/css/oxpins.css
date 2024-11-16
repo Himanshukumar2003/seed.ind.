@@ -3075,6 +3075,9 @@ body.locked .page-wrapper {
 
 .about-one__curved-circle-icon img {
   width: auto;
+  height: 80px;
+  object-fit: contain;
+  overflow: hidden;
 }
 
 .about-one__shape-2 {
