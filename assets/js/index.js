@@ -361,107 +361,125 @@ function toggleContent() {
     });
   }
 
-  if ($(".contact-form-validated").length) {
-    $(".contact-form-validated").validate({
-      rules: {
-        name: {
-          required: true,
-          minlength: 3
-        },
-        email: {
-          required: true,
-          email: true,
-          minlength: 8
-        },
-        phone: {
-          required: true,
-          number: true,
-          minlength: 10,
-          maxlength: 10
-        },
-        subject: {
-          required: true,
-          minlength: 5
-        },
-        message: {
-          required: true
+  $(document).ready(function () {
+    // Function to validate individual fields
+    function validateField(field, errorField, validations) {
+      const value = $(field).val().trim();
+      let errorMessage = "";
+
+      // Apply validations
+      validations.forEach((validation) => {
+        if (validation.rule === "required" && !value) {
+          errorMessage = "This field is required.";
+        } else if (validation.rule === "email" && value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+          errorMessage = "Please enter a valid email address.";
+        } else if (validation.rule === "phone" && value && !/^\d{10}$/.test(value)) {
+          errorMessage = "Please enter a valid 10-digit phone number.";
+        } else if (validation.rule === "minlength" && value.length < validation.value) {
+          errorMessage = `This field must have at least ${validation.value} characters.`;
         }
-      },
-      messages: {
-        name: {
-          required: "Please enter your name",
-          minlength: "Name should be at least 3 characters"
-        },
-        email: {
-          required: "Please enter your email",
-          email: "Please enter a valid email",
-          minlength: "Email should be at least 8 characters"
-        },
-        phone: {
-          required: "Please enter your phone number",
-          number: "Please enter only numbers",
-          minlength: "Phone number should be exactly 10 digits",
-          maxlength: "Phone number should be exactly 10 digits"
-        },
-        subject: {
-          required: "Please enter a subject",
-          minlength: "Subject should be at least 5 characters"
-        },
-        message: {
-          required: "Please enter your message"
-        }
-      },
-      submitHandler: function (form) {
-        $.post(
-          $(form).attr("action"),
-          $(form).serialize(),
-          function (response) {
-            $(form).parent().find(".result").append(response);
-            $(form).find('input[type="text"]').val("");
-            $(form).find('input[type="email"]').val("");
-            $(form).find("textarea").val("");
-          }
-        );
+      });
+
+      // Show or clear the error message
+      if (errorMessage) {
+        $(errorField).text(errorMessage).show();
         return false;
+      } else {
+        $(errorField).hide();
+        return true;
+      }
+    }
+
+    // Real-time validation
+    $("#name").on("input", function () {
+      validateField("#name", "#nameError", [{ rule: "required" }, { rule: "minlength", value: 3 }]);
+    });
+    $("#email").on("input", function () {
+      validateField("#email", "#emailError", [{ rule: "required" }, { rule: "email" }]);
+    });
+    $("#phone").on("input", function () {
+      validateField("#phone", "#phoneError", [{ rule: "required" }, { rule: "phone" }]);
+    });
+    $("#subject").on("input", function () {
+      validateField("#subject", "#subjectError", [{ rule: "required" }, { rule: "minlength", value: 5 }]);
+    });
+    $("#message").on("input", function () {
+      validateField("#message", "#messageError", [{ rule: "required" }]);
+    });
+
+    // Form submission
+    $("#contactForm").on("submit", function (e) {
+      e.preventDefault(); // Prevent default form submission
+
+      // Validate all fields
+      const isNameValid = validateField("#name", "#nameError", [{ rule: "required" }, { rule: "minlength", value: 3 }]);
+      const isEmailValid = validateField("#email", "#emailError", [{ rule: "required" }, { rule: "email" }]);
+      const isPhoneValid = validateField("#phone", "#phoneError", [{ rule: "required" }, { rule: "phone" }]);
+      const isSubjectValid = validateField("#subject", "#subjectError", [{ rule: "required" }, { rule: "minlength", value: 5 }]);
+      const isMessageValid = validateField("#message", "#messageError", [{ rule: "required" }]);
+
+      // Submit if all fields are valid
+      if (isNameValid && isEmailValid && isPhoneValid && isSubjectValid && isMessageValid) {
+        // AJAX submission
+        $.ajax({
+          url: $("#contactForm").attr("action"),
+          method: "POST",
+          data: $("#contactForm").serialize(),
+          dataType: "json",
+          success: function (response) {
+            if (response.status === "success") {
+              $("#formResponse").html("<p style='color:green;'>Your message has been sent successfully!</p>");
+              $("#contactForm")[0].reset(); // Clear the form
+              $(".error-text").hide(); // Hide all error messages
+            } else {
+              $("#formResponse").html("<p style='color:red;'>Something went wrong. Please try again.</p>");
+            }
+          },
+          error: function () {
+            $("#formResponse").html("<p style='color:red;'>Unable to send the email. Please try later.</p>");
+          },
+        });
+      } else {
+        $("#formResponse").html("<p style='color:red;'>Please correct the errors and try again.</p>");
       }
     });
-  }
+  });
 
 
   // mailchimp form
-  if ($(".mc-form").length) {
-    $(".mc-form").each(function () {
-      var Self = $(this);
-      var mcURL = Self.data("url");
-      var mcResp = Self.parent().find(".mc-form__response");
+  // if ($(".mc-form").length) {
+  //   $(".mc-form").each(function () {
+  //     var Self = $(this);
+  //     var mcURL = Self.data("url");
+  //     var mcResp = Self.parent().find(".mc-form__response");
 
-      Self.ajaxChimp({
-        url: mcURL,
-        callback: function (resp) {
-          // appending response
-          mcResp.append(function () {
-            return '<p class="mc-message">' + resp.msg + "</p>";
-          });
-          // making things based on response
-          if (resp.result === "success") {
-            // Do stuff
-            Self.removeClass("errored").addClass("successed");
-            mcResp.removeClass("errored").addClass("successed");
-            Self.find("input").val("");
+  //     Self.ajaxChimp({
+  //       url: mcURL,
+  //       callback: function (resp) {
+  //         // appending response
+  //         mcResp.append(function () {
+  //           return '<p class="mc-message">' + resp.msg + "</p>";
+  //         });
+  //         // making things based on response
+  //         if (resp.result === "success") {
+  //           // Do stuff
+  //           Self.removeClass("errored").addClass("successed");
+  //           mcResp.removeClass("errored").addClass("successed");
+  //           Self.find("input").val("");
 
-            mcResp.find("p").fadeOut(10000);
-          }
-          if (resp.result === "error") {
-            Self.removeClass("successed").addClass("errored");
-            mcResp.removeClass("successed").addClass("errored");
-            Self.find("input").val("");
+  //           mcResp.find("p").fadeOut(10000);
+  //         }
+  //         if (resp.result === "error") {
+  //           Self.removeClass("successed").addClass("errored");
+  //           mcResp.removeClass("successed").addClass("errored");
+  //           Self.find("input").val("");
 
-            mcResp.find("p").fadeOut(10000);
-          }
-        }
-      });
-    });
-  }
+  //           mcResp.find("p").fadeOut(10000);
+  //         }
+  //       }
+  //     });
+  //   });
+  // }
 
   if ($(".video-popup").length) {
     $(".video-popup").magnificPopup({

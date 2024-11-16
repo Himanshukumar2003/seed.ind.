@@ -208,34 +208,41 @@
                     <h2 class="section-title__title">Feel free to write us <br> anytime</h2>
                 </div>
                 <div class="contact-page__form-box">
-                    <form action="https://pixydrops.com/oxpinshtml/main-html/assets/inc/sendemail.php"
+                    <form id="contactForm" action="sendemail.php" method="POST"
                         class="contact-page__form contact-form-validated" novalidate="novalidate">
                         <div class="row">
+                            <div id="formResponse" style="margin-top: 20px;" class="col-xl-12 text-center"></div>
+
                             <div class="col-xl-6">
                                 <div class="contact-form__input-box">
-                                    <input type="text" placeholder="Your name" name="name">
+                                    <input type="text" id="name" placeholder="Your name" name="name">
+                                    <small class="error-text" id="nameError"></small>
                                 </div>
                             </div>
                             <div class="col-xl-6">
                                 <div class="contact-form__input-box">
-                                    <input type="email" placeholder="Email address" name="email">
+                                    <input type="email" id="email" placeholder="Email address" name="email">
+                                    <small class="error-text" id="emailError"></small>
                                 </div>
                             </div>
                             <div class="col-xl-6">
                                 <div class="contact-form__input-box">
-                                    <input type="text" placeholder="Phone" name="phone">
+                                    <input type="text" id="phone" placeholder="Phone" name="phone">
+                                    <small class="error-text" id="phoneError"></small>
                                 </div>
                             </div>
                             <div class="col-xl-6">
                                 <div class="contact-form__input-box">
-                                    <input type="text" placeholder="Subject" name="subject">
+                                    <input type="text" id="subject" placeholder="Subject" name="subject">
+                                    <small class="error-text" id="subjectError"></small>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xl-12">
                                 <div class="contact-form__input-box text-message-box">
-                                    <textarea name="message" placeholder="Write a message"></textarea>
+                                    <textarea id="message" name="message" placeholder="Write a message"></textarea>
+                                    <small class="error-text" id="messageError"></small>
                                 </div>
                                 <div class="contact-form__btn-box">
                                     <button type="submit" class="thm-btn contact-form__btn">Send a message</button>
@@ -243,6 +250,8 @@
                             </div>
                         </div>
                     </form>
+
+
                 </div>
             </div>
         </section>
@@ -257,7 +266,7 @@
                             </div>
                             <div class="contact-one__content">
                                 <p class="contact-one__sub-title">Helpline</p>
-                                <h3 class="contact-one__number"><a href="tel:011 41025605">011 41025605</a></h3>
+                                <h3 class="contact-one__number"><a href="tel:01141025605">011 41025605</a></h3>
                             </div>
                         </li>
                         <li class="contact-one__single">

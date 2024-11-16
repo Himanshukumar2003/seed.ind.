@@ -46,6 +46,14 @@
   --bs-gutter-y: 30px;
 }
 
+
+
+
+
+
+
+
+
 body {
   font-family: var(--oxpins-font);
   color: var(--oxpins-gray);
@@ -14359,8 +14367,9 @@ body.megamenu-popup-active .mobile-nav__content {
   }
 
   .main-menu__right-bottom {
-    background-color: var(--oxpins-white);
+    background-color: var(--oxpins-white) !important;
     padding-left: 0;
+    background-image: none !important;
   }
 
   .main-menu__left {
@@ -14368,6 +14377,8 @@ body.megamenu-popup-active .mobile-nav__content {
     margin-right: 0;
     float: left;
   }
+
+
 
   .main-menu__right {
     width: auto;
