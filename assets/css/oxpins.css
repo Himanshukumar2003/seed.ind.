@@ -2970,7 +2970,7 @@ body.locked .page-wrapper {
 .about-one {
   position: relative;
   display: block;
-  padding: 120px 0 120px;
+  padding: 80px 0 80px;
   z-index: 1;
 }
 
@@ -15330,4 +15330,14 @@ img {
   .footer-widget__column {
     text-align: center;
   }
+}
+
+
+
+footer img {
+  width: 200px;
+}
+
+.card {
+  height: 100%;
 }
