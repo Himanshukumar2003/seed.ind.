@@ -3083,7 +3083,7 @@ body.locked .page-wrapper {
 
 .about-one__curved-circle-icon img {
   width: auto;
-  height: 80px;
+  height: 100px;
   object-fit: contain;
   overflow: hidden;
 }
@@ -3251,7 +3251,6 @@ body.locked .page-wrapper {
   position: relative;
   display: block;
   margin-bottom: 30px;
-  height: 100%;
 }
 
 .causes-one__img {
@@ -8199,12 +8198,25 @@ body.locked .page-wrapper {
   z-index: -1;
 }
 
+
+.logo-box img {
+  width: 120px;
+}
+
 /*--------------------------------------------------------------
 # Sidebar
 --------------------------------------------------------------*/
 @media (max-width: 991px) {
   .sidebar {
     margin-top: 50px;
+  }
+
+  .footer-widget__contact-list li {
+    justify-content: center;
+  }
+
+  .site-footer__social {
+    justify-content: center;
   }
 }
 
@@ -14822,16 +14834,20 @@ body.megamenu-popup-active .mobile-nav__content {
 }
 
 .timeline-row .timeline-content i {
-  font-size: 2rem;
+  font-size: 21px;
   color: #ffffff;
   line-height: 100%;
   padding: 10px;
+  display: flex;
+  height: 45px;
+  width: 45px;
+  justify-content: center;
+  align-items: center;
   border: 2px solid #ffffff;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
   border-radius: 100px;
   margin-bottom: 10px;
-  display: inline-block;
 }
 
 .timeline-row .timeline-content .thumbs {
