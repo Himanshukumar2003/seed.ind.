@@ -15275,11 +15275,10 @@ img {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
   width: 100%;
   transition: height 0.3s ease;
   cursor: pointer;
-  min-height: 600px;
+  height: 100%;
 }
 
 
