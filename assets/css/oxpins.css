@@ -3251,6 +3251,7 @@ body.locked .page-wrapper {
   position: relative;
   display: block;
   margin-bottom: 30px;
+  height: 100%;
 }
 
 .causes-one__img {
